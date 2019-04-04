@@ -1,1 +1,0 @@
-# mcinerney.co-code
