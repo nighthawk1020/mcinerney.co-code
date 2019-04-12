@@ -1,0 +1,29 @@
+{
+  "name": "website-code",
+  "version": "1.0.0",
+  "description": "the code for my dev website",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nighthawk1020/mcinerney.co-code.git"
+  },
+  "keywords": [
+    "website",
+    "code",
+    "personal"
+  ],
+  "author": "Michael McInerney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nighthawk1020/mcinerney.co-code/issues"
+  },
+  "homepage": "https://github.com/nighthawk1020/mcinerney.co-code#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "typescript": "^3.4.3"
+  }
+}
