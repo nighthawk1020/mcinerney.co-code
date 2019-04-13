@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/nighthawk1020/mcinerney.co-code#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "typescript": "^3.4.3"
   }
