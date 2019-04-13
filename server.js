@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
 app.get('/', (req, res) => {
+    console.log('got request: ', req);
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 const port = process.env.PORT | 8080;
