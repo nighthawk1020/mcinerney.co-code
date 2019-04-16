@@ -5,10 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run bundle-all &&nodemon ./bundle-back.js",
-    "build": "webpack -p",
-    "start": "node server.js",
-    "bundle-all": "webpack --config webpack.config.js"
+    "dev": "npm run bundle-dev &&node ./dist/bundle-back.js",
+    "build": "webpack --config webpack.config.js --mode production",
+    "start": "node ./dist/bundle-back.js",
+    "bundle-dev": "webpack --config webpack.config.js --mode development"
   },
   "repository": {
     "type": "git",
@@ -26,19 +26,24 @@
   },
   "homepage": "https://github.com/nighthawk1020/mcinerney.co-code#readme",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.16.4"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
+    "@types/mocha": "^5.2.6",
     "@babel/preset-env": "^7.4.3",
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.16.1",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.11",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "ts-loader": "^5.3.3",
+    "ts-node": "^8.1.0",
     "typescript": "^3.4.3",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.0",

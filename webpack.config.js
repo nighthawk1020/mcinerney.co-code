@@ -2,6 +2,30 @@ const path = require("path");
 const nodeExternals = require('webpack-node-externals');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const tsRule =   {
+  test: /\.tsx?$/,
+  exclude: /node_modules/,
+  use: ['ts-loader']
+}
+
+const commonRules = [
+  {
+    test: /\.js$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: 'babel-preset-env'
+      }
+    }
+  },
+  tsRule
+]
+
+const commonResolver = {
+  extensions: [".tsx", ".ts", ".js", ".json"]
+}
+
 module.exports = [
   {
     devServer: {
@@ -13,16 +37,19 @@ module.exports = [
       port: 9091
     },
     devtool: 'inline-source-map',
-    entry: "./frontend/index.js",
+    entry: "./frontend/index.ts",
     module: {
-      rules: [{
-        test: /\.scss$/,
-        use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader"
-        ]
-      }]  
+      rules: [
+          {
+          test: /\.scss$/,
+          use: [
+            "style-loader",
+            "css-loader",
+            "sass-loader"
+          ]
+        },
+        ...commonRules
+      ]  
     },
     output: {
       path: path.resolve(__dirname, "./build"),
@@ -33,15 +60,28 @@ module.exports = [
         template: './frontend/index.html'
       })
     ],
+    resolve: commonResolver,
     target: "web"
   },
   {
-    entry: "./server.js",
+    entry: "./server/server.ts",
     externals: [nodeExternals()],
-    output: {
-      path: path.resolve(__dirname, "dist"),
-      filename: "bundle-back.js",
+    module: {
+      rules: [
+        tsRule
+      ]
     },
+    context: __dirname,
+    node: {
+      __filename: false,
+      __dirname: false
+    },
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: "bundle-back.js",
+      publicPath: path.resolve(__dirname, 'dist')
+    },
+    resolve: commonResolver,
     target: "node"
   }
 ]
