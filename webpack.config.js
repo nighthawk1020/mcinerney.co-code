@@ -31,13 +31,13 @@ module.exports = [
     devServer: {
       host: '0.0.0.0',
       publicPath: '/assets/',
-      contentBase: path.resolve(__dirname, "./frontend"),
+      contentBase: path.resolve(__dirname, "./src"),
       watchContentBase: true,
       compress: true,
       port: 9091
     },
     devtool: 'inline-source-map',
-    entry: "./frontend/index.ts",
+    entry: "./src/index.ts",
     module: {
       rules: [
           {
@@ -57,7 +57,7 @@ module.exports = [
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './frontend/index.html'
+        template: './src/index.html'
       })
     ],
     resolve: commonResolver,

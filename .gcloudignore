@@ -18,7 +18,6 @@ node_modules/
 
 # all other files
 server/
-frontend/
 app.yaml
 package-lock.json
 server.ts
