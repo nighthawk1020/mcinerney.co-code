@@ -29,36 +29,33 @@ const commonResolver = {
 module.exports = [
   {
     devServer: {
-      host: '0.0.0.0',
-      publicPath: '/assets/',
-      contentBase: path.resolve(__dirname, "./src"),
-      watchContentBase: true,
-      compress: true,
-      port: 9091
+      contentBase: path.resolve(__dirname, "build"),
+      open: true
     },
     devtool: 'inline-source-map',
     entry: "./src/index.ts",
     module: {
       rules: [
-          {
+        ...commonRules,
+        {
           test: /\.scss$/,
           use: [
-            "style-loader",
-            "css-loader",
-            "sass-loader"
+            'style-loader',
+            'css-loader',
+            'postcss-loader',
+            {loader: 'sass-loader', options: {includePaths: ['node_modules/bootstrap/scss']}}
           ]
-        },
-        ...commonRules
+        }
       ]  
     },
     output: {
-      path: path.resolve(__dirname, "./build"),
+      path: path.resolve(__dirname, "build"),
       filename: "bundle-front.js"
     },
     plugins: [
       new HtmlWebpackPlugin({
         template: './src/index.html'
-      })
+      }),
     ],
     resolve: commonResolver,
     target: "web"
