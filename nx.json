@@ -1,0 +1,30 @@
+{
+  "npmScope": "website-code-angular",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "website-code-angular-e2e": {
+      "tags": []
+    },
+    "website-code-angular": {
+      "tags": []
+    },
+    "api": {
+      "tags": []
+    },
+    "api-interface": {
+      "tags": []
+    },
+    "website-code-react": {
+      "tags": []
+    },
+    "website-code-react-e2e": {
+      "tags": []
+    }
+  }
+}

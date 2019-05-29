@@ -1,36 +1,23 @@
 {
-  "compileOnSave": true,
+  "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
-    "module": "es6",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es6",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom",
-      "dom.iterable",
-    ],
-    "allowJs": true,
+    "target": "es2015",
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "jsx": "preserve"
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@website-code-angular/api-interface": ["libs/api-interface/src/index.ts"]
+    }
   },
-  "exclude": [
-    "node_modules",
-    "e2e",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }
