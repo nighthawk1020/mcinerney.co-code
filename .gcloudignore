@@ -12,14 +12,25 @@
 # below:
 .git
 .gitignore
+.prettierignore
+.prettierrc
 
 # Node.js dependencies:
 node_modules/
 
 # all other files
+apps/
 server/
+libs/
+tools/
 app.yaml
 package-lock.json
+package.json
 server.ts
 tsconfig.json
+README.md
 webpack.config.js
+angular.json
+tslint.json
+jest.config.js
+nx.json
