@@ -9,7 +9,7 @@
     "build:dev:api": "ng build api --watch",
     "build:dev:angular": "ng build website-code-angular --watch",
     "build:dev:react": "ng build website-code-react --watch",
-    "build:prod": "ng build api --prod&& ng build website-code-angular --prod&& ng build website-code-angular --prod",
+    "build:prod": "npm install&& ng build api --prod&& ng build website-code-angular --prod&& ng build website-code-angular --prod",
     "test": "ng test",
     "lint": "nx lint && ng lint",
     "e2e": "ng e2e",
