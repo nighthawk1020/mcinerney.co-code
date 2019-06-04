@@ -2,6 +2,9 @@
   "name": "website-code-angular",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "ng": "ng",
     "start": "node dist/apps/api/main.js",
@@ -9,7 +12,7 @@
     "build:dev:api": "ng build api --watch",
     "build:dev:angular": "ng build website-code-angular --watch",
     "build:dev:react": "ng build website-code-react --watch",
-    "build:prod": "npm install&& ng build api --prod&& ng build website-code-angular --prod&& ng build website-code-angular --prod",
+    "build:prod": "npm install --only=prod&& ng build api --prod&& ng build website-code-angular --prod&& ng build website-code-angular --prod",
     "test": "ng test",
     "lint": "nx lint && ng lint",
     "e2e": "ng e2e",
