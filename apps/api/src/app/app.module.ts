@@ -1,7 +1,7 @@
 import { Module, NestModule, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 
 import { StaticFileMiddleware } from './middleware/static-file/static-file.middleware';
-import { UrlService } from './services/url-service/url-service';
+import { StaticFileService } from './services/static-file/static-file.service';
 import { AngularController } from './frontend-controllers/angular/angular.controller';
 import { CrowdDjController } from './frontend-controllers/crowd-dj/crowd-dj.controller';
 import { ReactController } from './frontend-controllers/react/react.controller';
@@ -22,7 +22,7 @@ import { CrowdDjModule } from './core/crowd-dj/crowd-dj.module';
     ReactController
   ],
   providers: [
-    UrlService
+    StaticFileService
   ]
 })
 export class AppModule implements NestModule {

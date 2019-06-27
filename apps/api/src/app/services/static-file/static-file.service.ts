@@ -13,7 +13,7 @@ const allowedExt = [
 ];
 
 @Injectable()
-export class UrlService {
+export class StaticFileService {
   resolvePath(directory: string, file?: string) {
     if (!file) {
       return resolve(join(__dirname, '..', directory, 'index.html'));

@@ -1,16 +1,16 @@
 import { Controller, Get, Res } from "@nestjs/common";
 import { Response } from 'express';
 import { REACT_ROUTE } from '../../routes/route-consts';
-import { UrlService } from '../../services/url-service/url-service';
+import { StaticFileService } from '../../services/static-file/static-file.service';
 
 @Controller(REACT_ROUTE)
 export class ReactController {
-  constructor(private readonly urlService: UrlService) {
+  constructor(private readonly StaticFileService: StaticFileService) {
 
   }
 
   @Get()
   getApp(@Res() res: Response) {
-    res.sendFile(this.urlService.resolvePath(REACT_ROUTE));
+    res.sendFile(this.StaticFileService.resolvePath(REACT_ROUTE));
   }
 }

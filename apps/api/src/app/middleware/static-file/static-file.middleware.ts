@@ -6,12 +6,12 @@ import {
   REACT_ROUTE,
   ROUTE_PREFIX
 } from '../../routes/route-consts';
-import { UrlService } from '../../services/url-service/url-service';
+import { StaticFileService } from '../../services/static-file/static-file.service';
 
 
 @Injectable()
 export class StaticFileMiddleware implements NestMiddleware {
-  constructor(private readonly urlService: UrlService) {
+  constructor(private readonly StaticFileService: StaticFileService) {
 
   }
   
@@ -20,11 +20,11 @@ export class StaticFileMiddleware implements NestMiddleware {
     let filePath;
     if (url.indexOf(ROUTE_PREFIX) < 0) {
       if (url.indexOf(ANGULAR_ROUTE) >= 0) {
-        filePath = this.urlService.resolvePath(ANGULAR_ROUTE, url);
+        filePath = this.StaticFileService.resolvePath(ANGULAR_ROUTE, url);
       } else if (url.indexOf(CROWD_DJ_ROUTE) >= 0) {
-        filePath = this.urlService.resolvePath(CROWD_DJ_ROUTE, url);
+        filePath = this.StaticFileService.resolvePath(CROWD_DJ_ROUTE, url);
       } else if(url.indexOf(REACT_ROUTE) >= 0) {
-        filePath = this.urlService.resolvePath(REACT_ROUTE, url);
+        filePath = this.StaticFileService.resolvePath(REACT_ROUTE, url);
       }
     }
     if (filePath) {
