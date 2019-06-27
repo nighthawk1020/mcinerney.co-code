@@ -7,9 +7,10 @@ require('dotenv').config();
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  app.useStaticAssets(join(__dirname, '../','website-code-angular'));
-  app.useStaticAssets(join(__dirname, '../','website-code-react'));
+  app.useStaticAssets(join(__dirname, '../','angular'));
+  app.useStaticAssets(join(__dirname, '../','react'));
+  app.useStaticAssets(join(__dirname, '../','crowd-dj'));
 
-  await app.listen(process.env.PORT || '3030');
+  await app.listen(process.env.PORT || '8080');
 }
 bootstrap();

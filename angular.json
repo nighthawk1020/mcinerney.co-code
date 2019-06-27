@@ -3,38 +3,38 @@
   "version": 1,
   "newProjectRoot": "",
   "projects": {
-    "website-code-angular": {
+    "angular": {
       "projectType": "application",
       "schematics": {
         "@nrwl/workspace:component": {
           "style": "scss"
         }
       },
-      "root": "apps/website-code-angular",
-      "sourceRoot": "apps/website-code-angular/src",
-      "prefix": "website-code-angular",
+      "root": "apps/angular",
+      "sourceRoot": "apps/angular/src",
+      "prefix": "angular",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/website-code-angular",
-            "index": "apps/website-code-angular/src/index.html",
-            "main": "apps/website-code-angular/src/main.ts",
-            "polyfills": "apps/website-code-angular/src/polyfills.ts",
-            "tsConfig": "apps/website-code-angular/tsconfig.app.json",
+            "outputPath": "dist/apps/angular",
+            "index": "apps/angular/src/index.html",
+            "main": "apps/angular/src/main.ts",
+            "polyfills": "apps/angular/src/polyfills.ts",
+            "tsConfig": "apps/angular/tsconfig.app.json",
             "assets": [
-              "apps/website-code-angular/src/favicon.ico",
-              "apps/website-code-angular/src/assets"
+              "apps/angular/src/favicon.ico",
+              "apps/angular/src/assets"
             ],
-            "styles": ["apps/website-code-angular/src/styles.scss"],
+            "styles": ["apps/angular/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/website-code-angular/src/environments/environment.ts",
-                  "with": "apps/website-code-angular/src/environments/environment.prod.ts"
+                  "replace": "apps/angular/src/environments/environment.ts",
+                  "with": "apps/angular/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -59,27 +59,27 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "website-code-angular:build",
-            "proxyConfig": "apps/website-code-angular/proxy.conf.json"
+            "browserTarget": "angular:build",
+            "proxyConfig": "apps/angular/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "website-code-angular:build:production"
+              "browserTarget": "angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "website-code-angular:build"
+            "browserTarget": "angular:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/website-code-angular/tsconfig.app.json",
-              "apps/website-code-angular/tsconfig.spec.json"
+              "apps/angular/tsconfig.app.json",
+              "apps/angular/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -87,35 +87,35 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/website-code-angular/jest.config.js",
-            "tsConfig": "apps/website-code-angular/tsconfig.spec.json",
-            "setupFile": "apps/website-code-angular/src/test-setup.ts"
+            "jestConfig": "apps/angular/jest.config.js",
+            "tsConfig": "apps/angular/tsconfig.spec.json",
+            "setupFile": "apps/angular/src/test-setup.ts"
           }
         }
       }
     },
-    "website-code-angular-e2e": {
-      "root": "apps/website-code-angular-e2e",
-      "sourceRoot": "apps/website-code-angular-e2e/src",
+    "angular-e2e": {
+      "root": "apps/angular-e2e",
+      "sourceRoot": "apps/angular-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/website-code-angular-e2e/cypress.json",
-            "tsConfig": "apps/website-code-angular-e2e/tsconfig.e2e.json",
-            "devServerTarget": "website-code-angular:serve"
+            "cypressConfig": "apps/angular-e2e/cypress.json",
+            "tsConfig": "apps/angular-e2e/tsconfig.e2e.json",
+            "devServerTarget": "angular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "website-code-angular:serve:production"
+              "devServerTarget": "angular:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "apps/website-code-angular-e2e/tsconfig.e2e.json"
+            "tsConfig": "apps/angular-e2e/tsconfig.e2e.json"
           }
         }
       }
@@ -199,33 +199,33 @@
         }
       }
     },
-    "website-code-react": {
-      "root": "apps/website-code-react",
-      "sourceRoot": "apps/website-code-react/src",
+    "react": {
+      "root": "apps/react",
+      "sourceRoot": "apps/react/src",
       "projectType": "application",
       "schematics": {},
       "architect": {
         "build": {
           "builder": "@nrwl/web:build",
           "options": {
-            "outputPath": "dist/apps/website-code-react",
-            "index": "apps/website-code-react/src/index.html",
-            "main": "apps/website-code-react/src/main.tsx",
-            "polyfills": "apps/website-code-react/src/polyfills.ts",
-            "tsConfig": "apps/website-code-react/tsconfig.app.json",
+            "outputPath": "dist/apps/react",
+            "index": "apps/react/src/index.html",
+            "main": "apps/react/src/main.tsx",
+            "polyfills": "apps/react/src/polyfills.ts",
+            "tsConfig": "apps/react/tsconfig.app.json",
             "assets": [
-              "apps/website-code-react/src/favicon.ico",
-              "apps/website-code-react/src/assets"
+              "apps/react/src/favicon.ico",
+              "apps/react/src/assets"
             ],
-            "styles": ["apps/website-code-react/src/styles.scss"],
+            "styles": ["apps/react/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/website-code-react/src/environments/environment.ts",
-                  "with": "apps/website-code-react/src/environments/environment.prod.ts"
+                  "replace": "apps/react/src/environments/environment.ts",
+                  "with": "apps/react/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -248,11 +248,11 @@
         "serve": {
           "builder": "@nrwl/web:dev-server",
           "options": {
-            "buildTarget": "website-code-react:build"
+            "buildTarget": "react:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "website-code-react:build:production"
+              "buildTarget": "react:build:production"
             }
           }
         },
@@ -260,8 +260,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/website-code-react/tsconfig.app.json",
-              "apps/website-code-react/tsconfig.spec.json"
+              "apps/react/tsconfig.app.json",
+              "apps/react/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -269,34 +269,150 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/website-code-react/jest.config.js",
-            "tsConfig": "apps/website-code-react/tsconfig.spec.json"
+            "jestConfig": "apps/react/jest.config.js",
+            "tsConfig": "apps/react/tsconfig.spec.json"
           }
         }
       }
     },
-    "website-code-react-e2e": {
-      "root": "apps/website-code-react-e2e",
-      "sourceRoot": "apps/website-code-react-e2e/src",
+    "react-e2e": {
+      "root": "apps/react-e2e",
+      "sourceRoot": "apps/react-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/website-code-react-e2e/cypress.json",
-            "tsConfig": "apps/website-code-react-e2e/tsconfig.e2e.json",
-            "devServerTarget": "website-code-react:serve"
+            "cypressConfig": "apps/react-e2e/cypress.json",
+            "tsConfig": "apps/react-e2e/tsconfig.e2e.json",
+            "devServerTarget": "react:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "website-code-react:serve:production"
+              "devServerTarget": "react:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "apps/website-code-react-e2e/tsconfig.e2e.json"
+            "tsConfig": "apps/react-e2e/tsconfig.e2e.json"
+          }
+        }
+      }
+    },
+    "crowd-dj": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/workspace:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/crowd-dj",
+      "sourceRoot": "apps/crowd-dj/src",
+      "prefix": "angular",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/crowd-dj",
+            "index": "apps/crowd-dj/src/index.html",
+            "main": "apps/crowd-dj/src/main.ts",
+            "polyfills": "apps/crowd-dj/src/polyfills.ts",
+            "tsConfig": "apps/crowd-dj/tsconfig.app.json",
+            "assets": [
+              "apps/crowd-dj/src/favicon.ico",
+              "apps/crowd-dj/src/assets"
+            ],
+            "styles": ["apps/crowd-dj/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/crowd-dj/src/environments/environment.ts",
+                  "with": "apps/crowd-dj/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "crowd-dj:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "crowd-dj:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "crowd-dj:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/crowd-dj/tsconfig.app.json",
+              "apps/crowd-dj/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/crowd-dj/jest.config.js",
+            "tsConfig": "apps/crowd-dj/tsconfig.spec.json",
+            "setupFile": "apps/crowd-dj/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "crowd-dj-e2e": {
+      "root": "apps/crowd-dj-e2e",
+      "sourceRoot": "apps/crowd-dj-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/crowd-dj-e2e/cypress.json",
+            "tsConfig": "apps/crowd-dj-e2e/tsconfig.e2e.json",
+            "devServerTarget": "crowd-dj:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "crowd-dj:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/crowd-dj-e2e/tsconfig.e2e.json"
           }
         }
       }
@@ -318,5 +434,5 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "website-code-angular"
+  "defaultProject": "angular"
 }

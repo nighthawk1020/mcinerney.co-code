@@ -1,5 +1,5 @@
 {
-  "npmScope": "website-code-angular",
+  "npmScope": "angular",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
@@ -8,10 +8,10 @@
     "nx.json": "*"
   },
   "projects": {
-    "website-code-angular-e2e": {
+    "angular-e2e": {
       "tags": []
     },
-    "website-code-angular": {
+    "angular": {
       "tags": []
     },
     "api": {
@@ -20,10 +20,16 @@
     "api-interface": {
       "tags": []
     },
-    "website-code-react": {
+    "react": {
       "tags": []
     },
-    "website-code-react-e2e": {
+    "react-e2e": {
+      "tags": []
+    },
+    "crowd-dj-e2e": {
+      "tags": []
+    },
+    "crowd-dj": {
       "tags": []
     }
   }

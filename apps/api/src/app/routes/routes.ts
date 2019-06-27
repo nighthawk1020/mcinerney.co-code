@@ -1,4 +1,17 @@
-export const ROUTE_PREFIX = 'api';
-export const ROUTE_TEST_PREFIX = 'api/test';
-export const ANGULAR_ROUTING_START = 'angular';
-export const REACT_ROUTING_START = 'react';
+import { Routes } from 'nest-router';
+import { ROUTE_PREFIX, CROWD_DJ_ROUTE } from './route-consts';
+import { ApiModule } from '../core/api/api.module';
+import { CrowdDjModule } from '../core/crowd-dj/crowd-dj.module';
+
+export const routes: Routes = [
+  {
+    path: ROUTE_PREFIX,
+    module: ApiModule,
+    children: [
+      {
+        path: CROWD_DJ_ROUTE,
+        module: CrowdDjModule
+      }
+    ]
+  }
+]
