@@ -19,9 +19,6 @@
 node_modules/
 
 # all other files
-apps/
-server/
-libs/
 tools/
 app.yaml
 package-lock.json
