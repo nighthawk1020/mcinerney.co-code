@@ -1,29 +1,21 @@
 import { Module, NestModule, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
+import { RouterModule } from 'nest-router';
 
 import { StaticFileMiddleware } from './middleware/static-file/static-file.middleware';
-import { StaticFileService } from './services/static-file/static-file.service';
-import { AngularController } from './frontend-controllers/angular/angular.controller';
-import { CrowdDjController } from './frontend-controllers/crowd-dj/crowd-dj.controller';
-import { ReactController } from './frontend-controllers/react/react.controller';
-import { RouterModule } from 'nest-router';
 import { routes } from './routes/routes';
 import { ApiModule } from './core/api/api.module';
-import { CrowdDjModule } from './core/crowd-dj/crowd-dj.module';
+import { FrontendControllersModule } from './frontend-controllers/frontend-controllers.module';
+import { ServicesModule } from './services/services.module';
 
 @Module({
   imports: [
     RouterModule.forRoutes(routes),
+    ServicesModule,
     ApiModule,
-    CrowdDjModule
+    FrontendControllersModule
   ],
-  controllers: [
-    AngularController,
-    CrowdDjController,
-    ReactController
-  ],
-  providers: [
-    StaticFileService
-  ]
+  controllers: [],
+  providers: []
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer): void {

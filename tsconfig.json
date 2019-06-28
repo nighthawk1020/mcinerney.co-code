@@ -15,9 +15,6 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {
-      "@angular/api-interface": ["libs/api-interface/src/index.ts"]
-    }
   },
   "exclude": ["node_modules", "tmp"]
 }

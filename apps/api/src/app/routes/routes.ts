@@ -1,7 +1,7 @@
 import { Routes } from 'nest-router';
 import { ROUTE_PREFIX, CROWD_DJ_ROUTE } from './route-consts';
 import { ApiModule } from '../core/api/api.module';
-import { CrowdDjModule } from '../core/crowd-dj/crowd-dj.module';
+import { CrowdDjApiModule } from '../core/api/crowd-dj/crowd-dj-api.module';
 
 export const routes: Routes = [
   {
@@ -10,7 +10,7 @@ export const routes: Routes = [
     children: [
       {
         path: CROWD_DJ_ROUTE,
-        module: CrowdDjModule
+        module: CrowdDjApiModule
       }
     ]
   }

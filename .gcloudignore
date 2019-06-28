@@ -20,6 +20,9 @@ node_modules/
 
 # all other files
 tools/
+apps/
+server/
+libs/
 app.yaml
 package-lock.json
 tsconfig.json

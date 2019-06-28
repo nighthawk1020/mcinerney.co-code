@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+$theme-colors: (
+  "primary": #7390aa,
+  "warn": #27e8a7,
+  "danger": #df4576
+);
+@import "~bootstrap/scss/bootstrap.scss";
