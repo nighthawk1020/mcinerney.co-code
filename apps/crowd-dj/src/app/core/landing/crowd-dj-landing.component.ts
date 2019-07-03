@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { SpotifyRedirectService } from './redirect/spotify-redirect.service';
 
 @Component({
   selector: 'my-homepage-crowd-dj',
@@ -7,9 +7,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./crowd-dj-landing.scss']
 })
 export class CrowdDjLandingComponent {
-  constructor(private http: HttpClient) {}
+  constructor(private spotifyRedirect: SpotifyRedirectService) {}
 
   getSpotifyScreen() {
-    this.http.get('https://accounts.spotify.com/authorize')
+    this.spotifyRedirect.redirect();
   }
 }

@@ -4,5 +4,6 @@
 
 export const environment = {
   production: false,
-  PORT: 8080
+  PORT: 8080,
+  baseUri: 'http://localhost:8080'
 };

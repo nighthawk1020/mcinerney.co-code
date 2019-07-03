@@ -15,9 +15,9 @@ const allowedExt = [
 @Injectable()
 export class StaticFileService {
   resolvePath(directory: string, file?: string) {
-    if (!file) {
+    if (allowedExt.filter(ext => file.indexOf(ext) > 0).length === 0) {
       return resolve(join(__dirname, '..', directory, 'index.html'));
-    } else if (file && allowedExt.filter(ext => file.indexOf(ext) > 0).length > 0) {
+    } else if (file) {
       return resolve(join(__dirname, '..', directory, file));
     }
     return null;

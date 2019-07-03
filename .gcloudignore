@@ -19,15 +19,8 @@
 node_modules/
 
 # all other files
-tools/
-apps/
-server/
-libs/
-app.yaml
-package-lock.json
-tsconfig.json
-README.md
-angular.json
-tslint.json
+.vscode
+.editorconfig
 jest.config.js
-nx.json
+package-lock.json
+README.md

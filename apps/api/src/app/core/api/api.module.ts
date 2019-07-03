@@ -8,6 +8,7 @@ import { CrowdDjApiModule } from './crowd-dj/crowd-dj-api.module';
   controllers: [],
   exports: [
     CrowdDjApiModule
-  ]
+  ],
+  providers: []
 })
 export class ApiModule {}
