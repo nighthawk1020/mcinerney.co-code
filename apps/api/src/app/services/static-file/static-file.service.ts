@@ -1,5 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { join, resolve} from 'path';
+import { Response } from 'express';
+import { CROWD_DJ_ROUTE, ANGULAR_ROUTE, REACT_ROUTE } from '../../routes/route-consts';
 const allowedExt = [
   '.js',
   '.ico',
@@ -21,5 +23,17 @@ export class StaticFileService {
       return resolve(join(__dirname, '..', directory, file));
     }
     return null;
+  }
+
+  sendAngular(res: Response, url: string) {
+    res.sendFile(this.resolvePath(ANGULAR_ROUTE, url));
+  }
+
+  sendCrowdDj(res: Response, url: string) {
+    res.sendFile(this.resolvePath(CROWD_DJ_ROUTE, url));
+  }
+
+  sendReact(res: Response, url: string) {
+    res.sendFile(this.resolvePath(REACT_ROUTE, url));
   }
 }

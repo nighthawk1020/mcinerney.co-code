@@ -17,18 +17,14 @@ export class StaticFileMiddleware implements NestMiddleware {
   
   use(req: Request, res: Response, next: () => void) {
     const url = req.baseUrl;
-    let filePath;
     if (url.indexOf(ROUTE_PREFIX) < 0) {
       if (url.indexOf(ANGULAR_ROUTE) >= 0) {
-        filePath = this.StaticFileService.resolvePath(ANGULAR_ROUTE, url);
+        this.StaticFileService.sendAngular(res, url);
       } else if (url.indexOf(CROWD_DJ_ROUTE) >= 0) {
-        filePath = this.StaticFileService.resolvePath(CROWD_DJ_ROUTE, url);
+        this.StaticFileService.sendCrowdDj(res, url);
       } else if(url.indexOf(REACT_ROUTE) >= 0) {
-        filePath = this.StaticFileService.resolvePath(REACT_ROUTE, url);
+        this.StaticFileService.sendReact(res, url);
       }
-    }
-    if (filePath) {
-      res.sendFile(filePath);
     } else {
       next();
     }

@@ -1,21 +1,23 @@
 
-import { Controller, Get, Res, Inject } from "@nestjs/common";
+import { Controller, Get, Res, UseInterceptors, Inject, Query } from "@nestjs/common";
 import { Response } from 'express';
+import { RedirectInterceptor } from '../../../services/interceptors/redirect-interceptor/redirect-interceptor.service';
+import { McinerneyHttpService } from '../../../services/http/mcinerney-http.service';
 
 @Controller()
 export class CrowdDjApiController {
-  private readonly redirectUri = '/crowd-dj/landing';
-
-  constructor(@Inject('baseUri') readonly baseUri: string) {}
+  constructor(@Inject('baseUri') readonly baseUri: string,
+              private readonly mcinerneyHttpService: McinerneyHttpService) {}
 
   @Get('spotify/redirect')
-  redirectToSpotify(@Res() res: Response) {
-    const scopes = 'user-read-private user-read-email';
-    res.redirect(`https://accounts.spotify.com/authorize?` + 
-              `response_type=code` +
-              `&client_id=${process.env.SPOTIFY_CLIENT_ID}` +
-              `&scope=${encodeURIComponent(scopes)}` +
-              `&redirect_uri=${encodeURIComponent(this.baseUri + this.redirectUri)}`);
+  @UseInterceptors(new RedirectInterceptor(process.env.SPOTIFY_REDIRECT_URL))
+  redirectToSpotify(@Res() res: Response) {}
+
+  @Get('spotify/redirect/response')
+  getSpotifyRedirect(@Query() query: any, @Res() res: Response) {
+    if (query.code) {
+      this.mcinerneyHttpService.getSpotifyApiToken(query.code);
+    }
   }
 
 }

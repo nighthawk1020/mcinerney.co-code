@@ -11,7 +11,7 @@
     "target": "esnext",
     "module": "esnext",
     "typeRoots": ["node_modules/@types"],
-    "lib": ["es7", "dom"],
+    "lib": ["es6", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
