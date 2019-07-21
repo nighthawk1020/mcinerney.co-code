@@ -80,7 +80,7 @@
               "apps/angular/tsconfig.app.json",
               "apps/angular/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!apps/angular/**"]
           }
         },
         "test": {
@@ -114,7 +114,10 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "apps/angular-e2e/tsconfig.e2e.json"
+            "tsConfig": "apps/angular-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "!apps/angular-e2e/**"
+            ]
           }
         }
       }
@@ -161,7 +164,7 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!apps/api/**"]
           }
         },
         "test": {
@@ -236,7 +239,7 @@
               "apps/react/tsconfig.app.json",
               "apps/react/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!apps/react/**"]
           }
         },
         "test": {
@@ -269,7 +272,10 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "apps/react-e2e/tsconfig.e2e.json"
+            "tsConfig": "apps/react-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "!apps/react-e2e/**"
+            ]
           }
         }
       }
@@ -350,7 +356,7 @@
               "apps/crowd-dj/tsconfig.app.json",
               "apps/crowd-dj/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!apps/crowd-dj/**"]
           }
         },
         "test": {
@@ -384,7 +390,10 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "apps/crowd-dj-e2e/tsconfig.e2e.json"
+            "tsConfig": "apps/crowd-dj-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "!apps/crowd-dj-e2e/**"
+            ]
           }
         }
       }
