@@ -1,48 +1,35 @@
-import { NestFactory } from '@nestjs/core';
-import { NestExpressApplication } from '@nestjs/platform-express';
 import * as bodyParser from 'body-parser';
-import * as rateLimit from 'express-rate-limit';
+import * as express from 'express';
+import cors from 'cors';
 import { join } from 'path';
-import { Request } from 'express';
-import { AppModule } from './app/app.module';
+import rateLimit from 'express-rate-limit';
+import { StaticFileMiddleware } from './app/middleware/static-file/static-file.middleware';
+import { configureApi } from './app/core/api/api.config';
+import { ROUTE_PREFIX } from './app/routes/route-prefixes';
+const router = express.Router();
 
 require('dotenv').config();
 
-async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
-
-  app.enableCors();
-  
-  app.use(bodyParser.json());
-
-  app.use((req: Request, res, next) => {
-    // const allowedOrigins = ['http://localhost:8080', 'https://accounts.spotify.com'];
-    // const origin = req.headers.referer;
-    // console.log(req.headers);
-    // console.log('origin', origin);
-    // if (allowedOrigins.indexOf(origin) > -1) {
-    //   res.setHeader('Access-Control-Allow-Origin', origin);
-    // }
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.header('Access-Control-Allow-Credentials', true);
-    return next();
-  })
-
-  app.useStaticAssets(join(__dirname, '../','angular'));
-  app.useStaticAssets(join(__dirname, '../','react'));
-  app.useStaticAssets(join(__dirname, '../','crowd-dj'));
-
-  app.use(
+const app = express();
+app.use(cors())
+  .use(bodyParser.json())
+  .use(
     rateLimit(
       {
         windowMs: 60 * 1000,
-        max: 100
+        max: 100  
       }
     )
-  )
+  ).use(express.static(join(__dirname, '..', 'angular')))
+  .use(express.static(join(__dirname, '..', 'crowd-dj')))
+  .use(express.static(join(__dirname, '..', 'react')))
+  .use(StaticFileMiddleware)
+  .use(ROUTE_PREFIX, router);
 
-  await app.listen(process.env.PORT || '8080');
-}
-bootstrap();
+configureApi(router);
+ 
+const port = process.env.PORT || 8080;
+
+console.log('Listening on port: ' + port);
+
+app.listen(port);

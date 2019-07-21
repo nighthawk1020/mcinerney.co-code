@@ -13,7 +13,7 @@ export class SpotifyRedirectService {
               private router: Router) {}
 
   redirect() {
-    this.http.get('/api/crowd-dj/spotify/redirect').subscribe((data: any) => {
+    this.http.get('/api/spotify/auth').subscribe((data: any) => {
       console.log(data);
       if (data.success) {
         this.router.navigate(['crowd-dj/landing']);
