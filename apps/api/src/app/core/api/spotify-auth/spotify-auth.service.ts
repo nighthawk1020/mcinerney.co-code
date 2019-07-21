@@ -12,7 +12,7 @@ export function setupSpotifyAuthRoutes(router: Router) {
   const landingRoute = environment.baseUri + CROWD_DJ_LANDING_ROUTE;
   console.log(redirect_uri);
   router.get(SPOTIFY_AUTH_ROUTE, (req: Request, res: Response) => {
-    const scope = 'user-read-private';
+    const scope = 'user-library-read';
     res.redirect('https://accounts.spotify.com/authorize?' + 
       querystring.stringify(
         {
