@@ -8,25 +8,16 @@
     "nx.json": "*"
   },
   "projects": {
-    "angular-e2e": {
-      "tags": []
-    },
     "angular": {
       "tags": []
     },
     "api": {
       "tags": []
     },
-    "react": {
-      "tags": []
-    },
-    "react-e2e": {
-      "tags": []
-    },
-    "crowd-dj-e2e": {
-      "tags": []
-    },
     "crowd-dj": {
+      "tags": []
+    },
+    "react": {
       "tags": []
     }
   }
