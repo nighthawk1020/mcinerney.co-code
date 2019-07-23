@@ -37,6 +37,7 @@ yarn-error.log
 testem.log
 /typings
 .env
+google-authentication-code.json
 
 # System Files
 .DS_Store

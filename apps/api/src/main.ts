@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
 import cors from 'cors';
@@ -7,8 +9,6 @@ import { StaticFileMiddleware } from './app/middleware/static-file/static-file.m
 import { configureApi } from './app/core/api/api.config';
 import { ROUTE_PREFIX } from './app/routes/route-prefixes';
 const router = express.Router();
-
-require('dotenv').config();
 
 const app = express();
 app.use(cors())
