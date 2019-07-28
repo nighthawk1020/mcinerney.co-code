@@ -7,7 +7,6 @@
     "node": "10.x.x"
   },
   "scripts": {
-    "prestart": "node getEnv",
     "ng": "ng",
     "start": "node ./dist/apps/api/main.js",
     "start:angular:dev": "ng serve --project angular",
@@ -18,7 +17,7 @@
     "build:api": "ng build --project api",
     "build:crowd-dj": "ng build --project crowd-dj",
     "build:react": "ng build --project react",
-    "build:prod": "ng build api --prod&& ng build angular --prod&& ng build angular --prod&& ng build crowd-dj --prod",
+    "build:prod": "ng build api --prod&& ng build angular --prod&& ng build react --prod&& ng build crowd-dj --prod",
     "deploy": "gcloud app deploy",
     "test": "ng test",
     "lint": "nx lint && ng lint",
@@ -51,7 +50,6 @@
     "@angular/platform-browser": "^8.1.2",
     "@angular/platform-browser-dynamic": "^8.1.2",
     "@angular/router": "^8.1.2",
-    "@google-cloud/storage": "^3.0.3",
     "@nrwl/angular": "8.2.0",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",

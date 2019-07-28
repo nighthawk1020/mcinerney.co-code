@@ -1,7 +1,6 @@
 import { join, resolve} from 'path';
 import { Response } from 'express';
 import { CROWD_DJ_ROUTE, ANGULAR_ROUTE, REACT_ROUTE } from '../../routes/route-prefixes';
-import { podcastMapping } from '../podcast/podcast-file-manager';
 
 const allowedExt = [
   '.js',
@@ -39,8 +38,6 @@ export function sendPodcasts(res: Response, url: string) {
     res.sendFile(join(__dirname, 'assets', 'podcast', 'podcast.html'));
   } else if (url.indexOf('.rss') >= 0) {
     res.sendFile(join(__dirname, 'assets', 'podcast', 'podcast.rss'));
-  } else if (url.indexOf('.mp3') >= 0) {
-    res.redirect(podcastMapping[url]);
   } else if (url.indexOf('.jpg') >= 0) {
     res.sendFile(join(__dirname, 'assets/nomsters-icon.jpg'));
   }
