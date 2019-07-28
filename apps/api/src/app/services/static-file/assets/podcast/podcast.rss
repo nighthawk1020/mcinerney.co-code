@@ -15,6 +15,7 @@
     </itunes:category>
     <itunes:category text="Comedy" />
     <itunes:explicit>yes</itunes:explicit>
+    <description>There's nothing better in this world than the sloppy mess of a good burger. Us nomsters have sacrificed our arteries for the greatest good of finding the best burger in the world (by world we mostly mean NYC). What started out a Burger Tour around NYC, branched out to all different kinds of foods with many other moonlighting, food crazy, Nomsters ready to commit Nomstrosities. Join Ben, Darius, and Mike to hear about their delicious adventures, discussions on food tech and food trends, and frequent bad jokes.</description>
     <language>en-us</language>
     <link>https://mcinerney.dev/podcasts</link>
     <item>
@@ -38,7 +39,7 @@
     <item>
       <title>Who Wants Pizza from Last Night?</title>
       <description>Join Ben, Darius, and Mike as they discuss some extremely weird new food trends and questionable life choices</description>
-      <pubDate>Mon, 15 Jul 2019 02:34:29 +0000</pubDate>
+      <pubDate>Mon, 22 Jul 2019 02:34:29 +0000</pubDate>
       <enclosure url="https://storage.googleapis.com/staging.sturdy-landing-165622.appspot.com/podcasts/nomsters-ep3.mp3"
                   type="audio/mpeg" length="106776187"/>
       <itunes:duration>44:29</itunes:duration>
