@@ -1,8 +1,6 @@
 import { join, resolve} from 'path';
 import { Response } from 'express';
-import { CROWD_DJ_ROUTE, ANGULAR_ROUTE, REACT_ROUTE, PODCAST_ROUTE } from '../../routes/route-prefixes';
-import { podcastHomepageHtml } from '../podcast/podcast-homepage';
-import { podcastRss } from '../podcast/podcast-rss';
+import { CROWD_DJ_ROUTE, ANGULAR_ROUTE, REACT_ROUTE } from '../../routes/route-prefixes';
 import { podcastMapping } from '../podcast/podcast-file-manager';
 
 const allowedExt = [
@@ -38,13 +36,13 @@ export function sendCrowdDj(res: Response, url: string) {
 
 export function sendPodcasts(res: Response, url: string) {
   if (allowedExt.filter(ext => url.indexOf(ext) > 0).length === 0) {
-    res.send(podcastHomepageHtml);
+    res.sendFile(join(__dirname, 'assets', 'podcast', 'podcast.html'));
   } else if (url.indexOf('.rss') >= 0) {
-    res.send(podcastRss);
+    res.sendFile(join(__dirname, 'assets', 'podcast', 'podcast.rss'));
   } else if (url.indexOf('.mp3') >= 0) {
-    res.send(podcastMapping[url]);
-  } else if (url.indexOf('.png') >= 0 || url.indexOf('.jpg') >= 0) {
-    res.sendFile(join(__dirname, 'assets/Hercule.jpg'));
+    res.redirect(podcastMapping[url]);
+  } else if (url.indexOf('.jpg') >= 0) {
+    res.sendFile(join(__dirname, 'assets/nomsters-icon.jpg'));
   }
 }
 

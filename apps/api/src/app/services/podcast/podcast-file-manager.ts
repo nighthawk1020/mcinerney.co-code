@@ -5,7 +5,7 @@ async function getBuckets() {
   function filesCallback(err, files) {
     if (files) {
       files.forEach((file) => {
-        podcastMapping['/' + file.metadata.name] = file;
+        podcastMapping['/' + file.metadata.name] = `https://storage.googleapis.com/${file.metadata.bucket}/${file.metadata.name}`;
       })
     }
   }
