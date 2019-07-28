@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SpotifyRedirectService } from './redirect/spotify-redirect.service';
 
 @Component({
   selector: 'my-homepage-crowd-dj',
@@ -7,9 +6,6 @@ import { SpotifyRedirectService } from './redirect/spotify-redirect.service';
   styleUrls: ['./crowd-dj-landing.scss']
 })
 export class CrowdDjLandingComponent {
-  constructor(private spotifyRedirect: SpotifyRedirectService) {}
+  constructor() {}
 
-  getSpotifyScreen() {
-    this.spotifyRedirect.redirect();
-  }
 }
