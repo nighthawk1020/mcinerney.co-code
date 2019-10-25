@@ -1,7 +1,9 @@
-import { CrowdDjLandingComponent } from "./landing/crowd-dj-landing.component";
-import { RedirectLandingComponent } from './landing/redirect/redirect-landing.component';
+import { SpotifyLandingComponent } from "./spotify/spotify-landing.component";
+import { CrowdDjComponent } from './crowd-dj.component';
+import { YoutubeLandingComponent } from './youtube/youtube-landing.component';
 
 export const CROWD_DJ_COMPONENTS = [
-  CrowdDjLandingComponent,
-  RedirectLandingComponent
+  CrowdDjComponent,
+  SpotifyLandingComponent,
+  YoutubeLandingComponent
 ]

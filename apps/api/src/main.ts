@@ -6,11 +6,20 @@ import cors from 'cors';
 import { join } from 'path';
 import rateLimit from 'express-rate-limit';
 import { StaticFileMiddleware } from './app/middleware/static-file/static-file.middleware';
-import { configureApi } from './app/core/api/api.config';
 import { ROUTE_PREFIX } from './app/routes/route-prefixes';
+import { configureSocketIo } from './app/core/sockets/socket.io-config';
+import { configureApi } from './app/core/api/api.config';
+
 const router = express.Router();
 
 const app = express();
+
+const server = require('http').Server(app);
+
+const io = require('socket.io')(server);
+
+configureSocketIo(io);
+
 app.use(cors())
   .use(bodyParser.json())
   .use(
@@ -26,9 +35,9 @@ app.use(cors())
   .use(StaticFileMiddleware)
   .use(ROUTE_PREFIX, router);
 
-configureApi(router);
- 
 const port = process.env.PORT || 8080;
+
+configureApi(router);
 
 console.log('Listening on port: ' + port);
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'my-homepage-angular',
+  selector: 'mcinerney-dev-angular',
   templateUrl: './angular-landing.html',
   styleUrls: ['./angular-landing.scss']
 })

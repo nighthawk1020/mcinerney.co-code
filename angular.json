@@ -235,7 +235,7 @@
       },
       "root": "apps/crowd-dj",
       "sourceRoot": "apps/crowd-dj/src",
-      "prefix": "angular",
+      "prefix": "crowd-dj",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -332,5 +332,5 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "angular"
+  "defaultProject": "api"
 }

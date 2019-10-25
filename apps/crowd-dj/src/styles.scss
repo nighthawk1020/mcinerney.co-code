@@ -8,3 +8,7 @@
 @include angular-material-theme($mcinerney-dev-theme);
 
 @include crowd-dj-theme($mcinerney-dev-theme);
+
+body {
+  height: 100vh;
+}
