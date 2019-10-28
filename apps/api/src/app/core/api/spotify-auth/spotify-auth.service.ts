@@ -1,7 +1,7 @@
 import { Router, Response, Request } from 'express';
 import * as querystring from 'querystring';
 import * as request from 'request';
-import { SPOTIFY_LANDING_ROUTE, ROUTE_PREFIX, SPOTIFY_AUTH_ROUTE, SPOTIFY_REDIRECT_ROUTE } from '../../../routes/route-prefixes';
+import { CROWD_DJ_LANDING_ROUTE, ROUTE_PREFIX, SPOTIFY_AUTH_ROUTE, SPOTIFY_REDIRECT_ROUTE } from '../../../routes/route-prefixes';
 import { environment } from '../../../../environments/environment';
 import { NamespaceManager } from '../../sockets/namespace/namespace-manager';
 
@@ -10,7 +10,7 @@ const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 
 export function setupSpotifyAuthRoutes(router: Router) {
   const redirect_uri = environment.baseUri + ROUTE_PREFIX + SPOTIFY_REDIRECT_ROUTE;
-  const spotifyLandingRoute = environment.baseUri + SPOTIFY_LANDING_ROUTE;
+  const spotifyLandingRoute = environment.baseUri + CROWD_DJ_LANDING_ROUTE;
   router.get(SPOTIFY_AUTH_ROUTE, (req: Request, res: Response) => {
     const scope = 'streaming,user-read-email,user-read-private';
     res.redirect('https://accounts.spotify.com/authorize?' + 
@@ -44,7 +44,8 @@ export function setupSpotifyAuthRoutes(router: Router) {
           const room = NamespaceManager.instance().generateNamespaceCode(code);
           const query = querystring.stringify(
             {
-              room
+              room,
+              type: 'spotify'
             }
           )
           res.redirect(`${spotifyLandingRoute}/?${query}`);

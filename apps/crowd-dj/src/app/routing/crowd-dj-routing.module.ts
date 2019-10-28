@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SpotifyLandingComponent } from '../core/crowd-dj/spotify/spotify-landing.component';
-import { CrowdDjComponent } from '../core/crowd-dj/crowd-dj.component';
-import { YoutubeLandingComponent } from '../core/crowd-dj/youtube/youtube-landing.component';
+import { CrowdDjLoginComponent } from '../core/crowd-dj/login/crowd-dj-login.component';
+import { CrowdDjLandingComponent } from '../core/crowd-dj/crowd-dj-landing.component';
 
 const routes: Routes = [
   {
@@ -15,15 +14,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: CrowdDjComponent,
+        component: CrowdDjLoginComponent,
       },
       {
-        path: 'spotify',
-        component: SpotifyLandingComponent    
-      },
-      {
-        path: 'youtube',
-        component: YoutubeLandingComponent
+        path: 'landing',
+        component: CrowdDjLandingComponent
       }
     ]
   }

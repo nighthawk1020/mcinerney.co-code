@@ -1,0 +1,6 @@
+<div fxFlex="1 0 100">
+  <mcinerney-dev-song-search (youtubeSelected)="selectedYoutubeVideo($event)"></mcinerney-dev-song-search>
+</div>
+<div fxFlex="1 1 100" *ngIf="true">
+  <mcinerney-dev-youtube-player [videoId]="youtubeVideoId"></mcinerney-dev-youtube-player>  
+</div>

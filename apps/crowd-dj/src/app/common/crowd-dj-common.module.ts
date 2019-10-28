@@ -7,6 +7,10 @@ import { CommonModule } from '@angular/common';
     imports: [
       CommonModule,
       HttpClientModule
+    ],
+    exports: [
+      CommonModule,
+      HttpClientModule
     ]
   }
 )
