@@ -1,14 +1,19 @@
 
 import { NgModule } from '@angular/core';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatInputModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule(
   {
     imports: [
-      MatButtonModule
+      MatButtonModule,
+      MatInputModule,
+      ReactiveFormsModule
     ],
     exports: [
-      MatButtonModule
+      MatButtonModule,
+      MatInputModule,
+      ReactiveFormsModule
     ]
   }
 )
