@@ -26,7 +26,9 @@
               "apps/angular/src/favicon.ico",
               "apps/angular/src/assets"
             ],
-            "styles": ["apps/angular/src/styles.scss"]
+            "styles": [
+              "apps/angular/src/styles.scss"
+            ]
           },
           "configurations": {
             "production": {
@@ -80,7 +82,10 @@
               "apps/angular/tsconfig.app.json",
               "apps/angular/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/angular/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/angular/**"
+            ]
           }
         },
         "test": {
@@ -142,7 +147,10 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/api/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/api/**"
+            ]
           }
         },
         "test": {
@@ -168,8 +176,13 @@
             "main": "apps/react/src/main.tsx",
             "polyfills": "apps/react/src/polyfills.ts",
             "tsConfig": "apps/react/tsconfig.app.json",
-            "assets": ["apps/react/src/favicon.ico", "apps/react/src/assets"],
-            "styles": ["apps/react/src/styles.scss"]
+            "assets": [
+              "apps/react/src/favicon.ico",
+              "apps/react/src/assets"
+            ],
+            "styles": [
+              "apps/react/src/styles.scss"
+            ]
           },
           "configurations": {
             "production": {
@@ -214,7 +227,10 @@
               "apps/react/tsconfig.app.json",
               "apps/react/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/react/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/react/**"
+            ]
           }
         },
         "test": {
@@ -249,7 +265,9 @@
               "apps/crowd-dj/src/favicon.ico",
               "apps/crowd-dj/src/assets"
             ],
-            "styles": ["apps/crowd-dj/src/styles.scss"]
+            "styles": [
+              "apps/crowd-dj/src/styles.scss"
+            ]
           },
           "configurations": {
             "production": {
@@ -302,7 +320,10 @@
               "apps/crowd-dj/tsconfig.app.json",
               "apps/crowd-dj/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/crowd-dj/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/crowd-dj/**"
+            ]
           }
         },
         "test": {
