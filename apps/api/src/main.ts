@@ -31,7 +31,6 @@ app.use(cors())
     )
   ).use(express.static(join(__dirname, '..', 'angular')))
   .use(express.static(join(__dirname, '..', 'crowd-dj')))
-  .use(express.static(join(__dirname, '..', 'react')))
   .use(StaticFileMiddleware)
   .use(ROUTE_PREFIX, router);
 

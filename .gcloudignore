@@ -21,6 +21,5 @@ node_modules/
 # all other files
 .vscode
 .editorconfig
-jest.config.js
 package-lock.json
 README.md

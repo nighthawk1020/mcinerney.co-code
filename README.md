@@ -24,8 +24,6 @@ Below are some plugins which you can add to your workspace:
 
 - [Angular](https://angular.io)
   - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
 - Web (no framework frontends)
   - `ng add @nrwl/web`
 - [Nest](https://nestjs.com)
@@ -62,12 +60,6 @@ Run `ng g component my-component --project=my-app` to generate a new component.
 ## Build
 
 Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `npm run affected:test` to execute the unit tests affected by a change.
 
 ## Understand your workspace
 

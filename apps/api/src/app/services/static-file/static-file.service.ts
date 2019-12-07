@@ -1,6 +1,6 @@
 import { join, resolve} from 'path';
 import { Response } from 'express';
-import { CROWD_DJ_ROUTE, ANGULAR_ROUTE, REACT_ROUTE } from '../../routes/route-prefixes';
+import { CROWD_DJ_ROUTE, ANGULAR_ROUTE } from '../../routes/route-prefixes';
 
 const allowedExt = [
   '.js',
@@ -41,8 +41,4 @@ export function sendPodcasts(res: Response, url: string) {
   } else if (url.indexOf('.jpg') >= 0) {
     res.sendFile(join(__dirname, 'assets/nomsters-icon.jpg'));
   }
-}
-
-export function sendReact(res: Response, url: string) {
-  res.sendFile(resolvePath(REACT_ROUTE, url));
 }
