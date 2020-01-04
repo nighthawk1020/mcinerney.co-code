@@ -1,0 +1,11 @@
+.container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  .clicker {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}

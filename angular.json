@@ -225,10 +225,95 @@
               "apps/crowd-dj/tsconfig.app.json",
               "apps/crowd-dj/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/crowd-dj/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/crowd-dj/**"]
+          }
+        }
+      }
+    },
+    "lag-adjusted-clicker": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/lag-adjusted-clicker",
+      "sourceRoot": "apps/lag-adjusted-clicker/src",
+      "prefix": "mcinerney",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/lag-adjusted-clicker",
+            "index": "apps/lag-adjusted-clicker/src/index.html",
+            "main": "apps/lag-adjusted-clicker/src/main.ts",
+            "polyfills": "apps/lag-adjusted-clicker/src/polyfills.ts",
+            "tsConfig": "apps/lag-adjusted-clicker/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/lag-adjusted-clicker/src/favicon.ico",
+              "apps/lag-adjusted-clicker/src/assets"
+            ],
+            "styles": ["apps/lag-adjusted-clicker/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/lag-adjusted-clicker/src/environments/environment.ts",
+                  "with": "apps/lag-adjusted-clicker/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "lag-adjusted-clicker:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "lag-adjusted-clicker:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "lag-adjusted-clicker:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/lag-adjusted-clicker/tsconfig.app.json",
+              "apps/lag-adjusted-clicker/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/lag-adjusted-clicker/**"]
           }
         }
       }
