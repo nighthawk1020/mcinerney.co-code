@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+FILES=("apps/angular/config/production.json" "apps/api/config/production.json" "apps/crowd-dj/config/production.json" "apps/lag-adjusted-clicker/config/production.json")
+
+for FILE in "${FILES[@]}"
+do
+  gcloud kms $1 \
+    --plaintext-file=$FILE \
+    --ciphertext-file=$FILE.enc \
+    --location=global \
+    --keyring=mcinerney-apps-keyring \
+    --key=cloudbuild
+done
