@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  angular:
+    build: 
+      context: './'
+      dockerfile: './apps/angular/Dockerfile'
+  api:
+    build: './apps/api'
+  crowd-dj:
+    build: './apps/crowd-dj'
+  lag-adjusted-clicker:
+    build: './apps/lag-adjusted-clicker'

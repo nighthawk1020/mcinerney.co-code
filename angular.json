@@ -225,7 +225,10 @@
               "apps/crowd-dj/tsconfig.app.json",
               "apps/crowd-dj/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/crowd-dj/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/crowd-dj/**"
+            ]
           }
         }
       }
@@ -254,7 +257,9 @@
               "apps/lag-adjusted-clicker/src/favicon.ico",
               "apps/lag-adjusted-clicker/src/assets"
             ],
-            "styles": ["apps/lag-adjusted-clicker/src/styles.scss"],
+            "styles": [
+              "apps/lag-adjusted-clicker/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -279,11 +284,6 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
                 }
               ]
             }
@@ -313,7 +313,69 @@
               "apps/lag-adjusted-clicker/tsconfig.app.json",
               "apps/lag-adjusted-clicker/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/lag-adjusted-clicker/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/lag-adjusted-clicker/**"
+            ]
+          }
+        }
+      }
+    },
+    "angular-server": {
+      "root": "apps/angular-server",
+      "sourceRoot": "apps/angular-server/src",
+      "projectType": "application",
+      "prefix": "angular-server",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/angular-server",
+            "main": "apps/angular-server/src/main.ts",
+            "tsConfig": "apps/angular-server/tsconfig.app.json",
+            "assets": [
+              "apps/angular-server/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/angular-server/src/environments/environment.ts",
+                  "with": "apps/angular-server/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "angular-server:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/angular-server/tsconfig.app.json",
+              "apps/angular-server/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/angular-server/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/angular-server/jest.config.js",
+            "tsConfig": "apps/angular-server/tsconfig.spec.json"
           }
         }
       }

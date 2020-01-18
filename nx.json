@@ -19,6 +19,9 @@
     },
     "lag-adjusted-clicker": {
       "tags": []
+    },
+    "angular-server": {
+      "tags": []
     }
   }
 }
