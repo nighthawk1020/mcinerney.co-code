@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/apps/angular",
             "index": "apps/angular/src/index.html",
             "main": "apps/angular/src/main.ts",
@@ -52,6 +53,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -161,6 +166,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/apps/crowd-dj",
             "index": "apps/crowd-dj/src/index.html",
             "main": "apps/crowd-dj/src/main.ts",
@@ -196,6 +202,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -252,7 +262,7 @@
             "main": "apps/lag-adjusted-clicker/src/main.ts",
             "polyfills": "apps/lag-adjusted-clicker/src/polyfills.ts",
             "tsConfig": "apps/lag-adjusted-clicker/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "apps/lag-adjusted-clicker/src/favicon.ico",
               "apps/lag-adjusted-clicker/src/assets"
@@ -275,7 +285,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -284,6 +293,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
