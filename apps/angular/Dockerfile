@@ -1,41 +1,28 @@
 # Slim Node TLS version
 FROM node:lts-slim
 
-# Install build deps
-RUN apt update && apt install -y python build-essential
-
-WORKDIR /tmp/build
+WORKDIR /usr/src/app
 
 ENV NODE_ENV=production
 
-# node-config environment var
-ARG NODE_CONFIG_ENV
-ENV NODE_CONFIG_ENV ${NODE_CONFIG_ENV:-production}
+ENV PATH=$PATH:/usr/src/node_modules/.bin
 
-COPY package.json /tmp/build/
+ENV port=4200
+
+COPY package*.json ./
 
 RUN npm install
 
-RUN mv /tmp/build/node_modules /tmp/node_modules
+RUN npm install -g @angular/cli
 
-COPY . /tmp/build
+COPY . .
 
-RUN rm -rf /tmp/build/node_modules && mv /tmp/node_modules /tmp/build/node_modules
-
-ENV PATH=$PATH:~/tmp/build/node_modules/.bin
+EXPOSE 4200
 
 # Build the app
 RUN npm run build-prod:angular
 
 # Build the server
 RUN npm run build-prod:angular-server
-
-WORKDIR /usr/src/app
-
-# Copy only app runtime (required files for app to run)
-RUN cp -a /tmp/build/node_modules /tmp/build/dist /tmp/build/package.json /tmp/build/config /usr/src/app/ \
-    && rm -rf /tmp/build
-
-ENV port=8080
 
 CMD npm run start-prod:angular-server

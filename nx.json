@@ -11,6 +11,10 @@
     "angular": {
       "tags": []
     },
+    "angular-server": {
+      "tags": [],
+      "implicitDependencies": ["angular"]
+    },
     "api": {
       "tags": []
     },
@@ -18,9 +22,6 @@
       "tags": []
     },
     "lag-adjusted-clicker": {
-      "tags": []
-    },
-    "angular-server": {
       "tags": []
     }
   }
