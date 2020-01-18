@@ -12,8 +12,7 @@
       "tags": []
     },
     "angular-server": {
-      "tags": [],
-      "implicitDependencies": ["angular"]
+      "tags": []
     },
     "api": {
       "tags": []
