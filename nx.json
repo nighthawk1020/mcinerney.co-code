@@ -9,7 +9,8 @@
   },
   "projects": {
     "angular": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["angular-server"]
     },
     "angular-server": {
       "tags": []
